@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  characters:
+    container_name: characters
+    restart: always
+    build: ./characters
+    ports: -"3001:3001"
+
+  films:
+    container_name: films
+    restart: always
+    build: ./films
+    ports: -"3002:3002"
