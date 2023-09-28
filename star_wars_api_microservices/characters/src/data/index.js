@@ -4,8 +4,8 @@ const urlConexion = "http://database:8004/Character";
 
 module.exports = {
   list: async () => {
-    const results = await axios.get(urlConexion);
-    return results.data;
+    const { data } = await axios.get(urlConexion);
+    return data;
   },
   getOne: async (id) => {
     const { data } = await axios.get(`${urlConexion}/${id}`);
@@ -19,8 +19,8 @@ module.exports = {
     const { data } = await axios.delete(`${urlConexion}/${id}`);
     return data;
   },
-  update: async (id) => {
-    const { data } = await axios.update(`${urlConexion}/${id}`);
+  update: async (id, character) => {
+    const { data } = await axios.patch(`${urlConexion}/${id}`, character);
     return data;
   },
 };
